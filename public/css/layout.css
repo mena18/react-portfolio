@@ -468,6 +468,13 @@ ul#nav li.current a {
   color: #95a3a3;
 }
 
+.project_button i {
+  color: gray;
+}
+.project_button:hover i {
+  color: black;
+}
+
 #portfolio-wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -480,6 +487,7 @@ ul#nav li.current a {
 }
 .portfolio-item .item-wrap {
   background: #fff;
+  cursor: pointer;
 
   overflow: hidden;
   position: relative;

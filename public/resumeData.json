@@ -88,14 +88,15 @@
   "portfolio": {
     "projects": [
       {
+        "code": 0,
         "title": "Web Applications",
         "style": "web",
         "projects": [
           {
             "title": "blog with Django",
-            "category": "full featured blog with python and django3",
+            "small_description": "full featured blog with python and django3",
             "image": "blog.png",
-            "url": "https://github.com/mena18/Django-Blog",
+            "github_url": "https://github.com/mena18/Django-Blog",
             "description": "this is a Full featured blog build with python and Django where People can read articles and comment on them or share the article with friends",
             "skills": [
               "Html5",
@@ -105,26 +106,28 @@
               "Jquery",
               "Python",
               "Django"
-            ]
+            ],
+            "images": ["space_war.png", "tank.png"]
           },
           {
             "title": "E-learning Platform php",
-            "category": "this is an E-learning platform build with php/MVC providing free courses",
+            "small_description": "this is an E-learning platform build with php/MVC providing free courses",
             "image": "e-learning.png",
-            "url": "https://github.com/mena18/Online-courses",
+            "github_url": "https://github.com/mena18/Online-courses",
             "description": [
               "an E-learning platform contains 3 user roles (student,instructor,admin)",
               "Students can enroll in courses and watch lessons, solve assignments, take quizzes, download resources and watch their progress in all their courses, and can communicate with the instructor",
               "instructors can CURD all their courses and lessons and quizzes",
               "admins can add new instructors and delete instructors & courses & students"
             ],
-            "skills": ["Html5", "Css3", "JS", "PHP", "MySql"]
+            "skills": ["Html5", "Css3", "JS", "PHP", "MySql"],
+            "images": ["space_war.png", "tank.png"]
           },
           {
             "title": "IEEEPUASB Website",
-            "category": "Official website for ieeepuasb",
+            "small_description": "Official website for ieeepuasb",
             "image": "ieee.png",
-            "url": "http://www.ieeepuasb.com",
+            "demo_url": "http://www.ieeepuasb.com",
             "description": "",
             "skills": [
               "Html5",
@@ -138,41 +141,41 @@
           },
           {
             "title": "civil engineering Dashboard",
-            "category": "Dashboard for civil engineering Website",
+            "small_description": "Dashboard for civil engineering Website",
             "image": "hci.png",
-            "url": "https://github.com/mena18/HCI_Project",
+            "github_url": "https://github.com/mena18/HCI_Project",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Jquery", "Django", "D3.js"]
           },
           {
             "title": "E-commerce website with django",
-            "category": "A Clothes  E-commerce  with django using stripe for payment",
+            "small_description": "A Clothes  E-commerce  with django using stripe for payment",
             "image": "e-commerce.png",
-            "url": "https://github.com/mena18/Django-Ecommerce",
+            "github_url": "https://github.com/mena18/Django-Ecommerce",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django", "stripe"]
           },
           {
             "title": "najlaa alsuwaidi web app",
-            "category": "this is personal website for najlaa alsuwaidi to display and create articles and books",
+            "small_description": "this is personal website for najlaa alsuwaidi to display and create articles and books",
             "image": "nagla.png",
-            "url": "http://najlaa-alsuwaidi.me/",
+            "demo_url": "http://najlaa-alsuwaidi.me/",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django", "postgresql"]
           },
           {
             "title": "Advanced Todolist",
-            "category": "Web app to track your time and daily progress to increase productivity",
+            "small_description": "Web app to track your time and daily progress to increase productivity",
             "image": "todo.png",
-            "url": "https://github.com/mena18/TodoList",
+            "github_url": "https://github.com/mena18/TodoList",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django"]
           },
           {
             "title": "trivia api",
-            "category": "platform that provides quizzes for users build with flask rest api and react",
+            "small_description": "platform that provides quizzes for users build with flask rest api and react",
             "image": "trivia.png",
-            "url": "https://github.com/mena18/02_trivia_api",
+            "github_url": "https://github.com/mena18/02_trivia_api",
             "description": "",
             "skills": [
               "Js",
@@ -185,7 +188,7 @@
           },
           {
             "title": "Beesarch",
-            "category": "freelancing platform",
+            "small_description": "freelancing platform",
             "description": [
               "a freelancing platform for constructor workers",
               "clients can create contracts and select between freelancers then transfer the money using PayPal",
@@ -197,46 +200,71 @@
         ]
       },
       {
+        "code": 1,
         "title": "Games",
         "style": "games",
         "projects": [
           {
             "title": "Tank war",
-            "category": "a 2D War Tank game with 3 different levels",
+            "small_description": "a 2D War Tank game with 3 different levels",
             "image": "tank.png",
-            "url": "https://github.com/mena18/Tank_War",
+            "github_url": "https://github.com/mena18/Tank_War",
             "description": "a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks",
             "skills": ["JAVA"]
           },
           {
             "title": "Space invadors",
-            "category": "Space invador 2D game with pygame",
+            "small_description": "Space invador 2D game with pygame",
             "image": "space_war.png",
-            "url": "https://github.com/mena18/Space-war",
+            "github_url": "https://github.com/mena18/Space-war",
             "description": "",
             "skills": ["python", "pygame"]
           }
         ]
       },
       {
+        "code": 2,
         "title": "Software applications",
         "style": "software",
         "projects": [
           {
             "title": "Compiler-for-NASM",
-            "category": "compiler build in python to run in linux machine ",
+            "small_description": "compiler build in python to run in linux machine ",
             "image": "compiler.png",
-            "url": "https://github.com/mena18/Compiler-for-NASM",
+            "github_url": "https://github.com/mena18/Compiler-for-NASM",
             "description": "this is basic a compiler written in python to convert easy written human language to assembly that get executed by nasm assembler in (x86-64) Machine it contains variable declaration , loop , if and else condition and print statement",
             "skills": ["python", "compiler design"]
           },
           {
             "title": "Pyqt5 youtube downloader",
-            "category": "Desktop application to download from the internet or downloading youtube videos using python and pyqt5",
+            "small_description": "Desktop application to download from the internet or downloading youtube videos using python and pyqt5",
             "image": "downloader.png",
-            "url": "https://github.com/mena18/PyQt5-Downloader",
+            "github_url": "https://github.com/mena18/PyQt5-Downloader",
             "description": "",
             "skills": ["python", "Pyqt5"]
+          }
+        ]
+      },
+      {
+        "code": 3,
+        "title": "AI",
+        "style": "AI",
+        "projects": [
+          {
+            "title": "Tank war",
+            "small_description": "a 2D War Tank game with 3 different levels",
+            "image": "tank.png",
+            "github_url": "https://github.com/mena18/Tank_War",
+            "description": "a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks",
+            "skills": ["JAVA"]
+          },
+          {
+            "title": "Space invadors",
+            "small_description": "Space invador 2D game with pygame",
+            "image": "space_war.png",
+            "github_url": "https://github.com/mena18/Space-war",
+            "description": "",
+            "skills": ["python", "pygame"]
           }
         ]
       }

@@ -1,85 +1,281 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from "react";
 
+import PropTypes from "prop-types";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Typography, Box, Modal, Button, Chip } from "@mui/material";
+import Carousel from "react-material-ui-carousel";
+import { Stack } from "@mui/system";
 
-function SingleProject(props) {
-  var projectImage = 'images/portfolio/'+props.project.image;
-  return (
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 1000,
+  height: 700,
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 4,
+  overflowX: "hidden",
+  overflowY: "scroll",
+};
+function CarouselBody({ project }) {
+  const data =
+    project?.images?.length > 0 ? (
+      <Carousel navButtonsAlwaysVisible={true}>
+        {project.images?.map((image, i) => (
+          <Stack key={i} alignItems={"center"}>
+            <img style={{ maxWidth: 900 }} src={"images/portfolio/" + image} />
+          </Stack>
+        ))}
+      </Carousel>
+    ) : (
+      <img
+        style={{ maxWidth: 900 }}
+        src={"images/portfolio/" + project.image}
+      />
+    );
 
-    <div key={props.project.title} className="columns portfolio-item">
-      <div className="item-wrap">
-        <a href={props.project.url} title={props.project.title}>
-          <img alt={props.project.title} src={projectImage} />
-          <div className="overlay">
-              <div className="portfolio-item-meta">
-            <h5>{props.project.title}</h5>
-                <p>{props.project.category}</p>
-              </div>
-            </div>
-          <div className="link-icon"><i className="fa fa-link"></i></div>
-        </a>
-      </div>
-    </div>
-
-  )
-} 
-
-
-
-function ProjectGroup(props){
-  var title = props.projects.title
-  var projects = props.projects.projects.map(function(project){
-    console.log(project)
-    return (
-        <SingleProject project={project} />
-
-    )
-  })
-
-  return (
-    <div>
-      <div className={props.projects.style}>
-        <h1 >{props.projects.title}</h1>
-      </div>
-      {projects}
-      <hr/>
-    </div>
-  )
+  return <>{data}</>;
 }
 
-
-
-class Portfolio extends Component {
-  render() {
-
-    if(this.props.data){
-      var projects = this.props.data.projects.map(function(projects){
-        console.log(projects)
+function SkillsBody({ project }) {
+  return (
+    <Stack
+      direction={"row"}
+      spacing={1}
+      alignItems="center"
+      justifyContent={"center"}
+    >
+      {project?.skills?.map((skill) => {
         return (
+          <Chip
+            sx={{ fontSize: 14, fontWeight: "bold" }}
+            label={skill}
+            color="primary"
+          />
+        );
+      })}
+    </Stack>
+  );
+}
 
-            // <SingleProject project={projects} />
-            <ProjectGroup projects={projects} />
+function Buttons({ project }) {
+  const list = [
+    { icon: "fa fa-github", url: "github_url" },
+    { icon: "fa fa-eye", url: "demo_url" },
+    { icon: "fa fa-video-camera", url: "video_url" },
+  ];
+  return (
+    <Stack
+      direction={"row"}
+      spacing={5}
+      alignItems="center"
+      justifyContent={"center"}
+      sx={{ fontSize: "50px" }}
+    >
+      {list.map((item, index) => {
+        const url = project[item.url];
 
-        )
-      })
-    }
+        return (
+          <>
+            {url ? (
+              <a
+                className="project_button"
+                key={index}
+                target={"_blank"}
+                href={project[item.url]}
+              >
+                <i className={item.icon}></i>
+              </a>
+            ) : (
+              <></>
+            )}
+          </>
+        );
+      })}
+    </Stack>
+  );
+}
+function ModalBody({ open, handleClose, project }) {
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <Stack spacing={2} direction={"column"}>
+          <Typography id="modal-modal-title" variant="h3" component="h3">
+            {project.title}
+          </Typography>
+          <Typography
+            id="modal-modal-description"
+            variant="p"
+            component="p"
+            sx={{ mt: 2 }}
+          >
+            {project?.description
+              ? project.description
+              : project.small_description}
+          </Typography>
+          <SkillsBody project={project} />
+          <Buttons project={project} />
+          <CarouselBody project={project} />
+        </Stack>
+      </Box>
+    </Modal>
+  );
+}
 
-    return (
-      <section id="portfolio">
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
-      <div className="row">
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
 
-         <div className="twelve columns collapsed">
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
 
-            <h1>Check Out Some of My Works.</h1>
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    "aria-controls": `simple-tabpanel-${index}`,
+  };
+}
 
-            <div id="portfolio-wrapper" className="bgrid-quarters s-bgrid-thirds cf">
-                {projects}
-            </div>
+function SingleProject({ handleOpen, project }) {
+  var projectImage = "images/portfolio/" + project.image;
+
+  return (
+    <div key={project.title} className="columns portfolio-item">
+      <div onClick={handleOpen} className="item-wrap">
+        {/* <a href={project.url} title={project.title}> */}
+        <img alt={project.title} src={projectImage} />
+        <div className="overlay">
+          <div className="portfolio-item-meta">
+            <h5>{project.title}</h5>
+            <p>{project.small_description}</p>
           </div>
+        </div>
+        {/* <div className="link-icon">
+          <i className="fa fa-link"></i>
+        </div> */}
+        {/* </a> */}
       </div>
-   </section>
+    </div>
+  );
+}
+
+function ProjectGroup({ handleOpen, projects }) {
+  const projectsView = projects?.map((project, index) => {
+    return (
+      <SingleProject
+        handleOpen={() => {
+          handleOpen(index);
+        }}
+        project={project}
+      />
     );
-  }
+  });
+
+  return <div>{projectsView}</div>;
+}
+
+function Portfolio({ data }) {
+  const [open, setOpen] = useState(-1);
+  const handleOpen = (v) => setOpen(v);
+  const handleClose = () => setOpen(-1);
+  const [activeProject, setActiveProject] = useState({});
+
+  const [value, setValue] = useState(0);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  useEffect(() => {
+    const act = data?.projects?.[value]?.projects[open];
+    if (act) {
+      setActiveProject(act);
+    } else {
+      setActiveProject({});
+    }
+  }, [open]);
+
+  const projects = data?.projects?.[value]?.projects;
+  const projectsView = (
+    <ProjectGroup handleOpen={handleOpen} projects={projects} />
+  );
+
+  return (
+    <section id="portfolio">
+      <ModalBody
+        open={open !== -1}
+        handleClose={handleClose}
+        project={activeProject}
+      />
+      <div className="row">
+        <div className="twelve columns collapsed">
+          <h1>Check Out Some of My Works.</h1>
+
+          <div
+            id="portfolio-wrapper"
+            className="bgrid-quarters s-bgrid-thirds cf"
+          >
+            <Box>
+              <Box
+                sx={{ borderBottom: 1, borderColor: "divider", m: "10px 40px" }}
+              >
+                <Tabs
+                  value={value}
+                  onChange={handleChange}
+                  aria-label="basic tabs example"
+                >
+                  {data?.projects?.map((projectsGroup, index) => {
+                    return (
+                      <Tab
+                        sx={{ fontSize: 16 }}
+                        label={projectsGroup.title}
+                        {...a11yProps(index)}
+                      />
+                    );
+                  })}
+                </Tabs>
+              </Box>
+
+              {data?.projects?.map((_, index) => {
+                return (
+                  <TabPanel value={value} index={index}>
+                    {projectsView}
+                  </TabPanel>
+                );
+              })}
+            </Box>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default Portfolio;
