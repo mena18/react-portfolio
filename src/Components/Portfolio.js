@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Typography, Box, Modal, Button, Chip } from "@mui/material";
+import { Typography, Box, Modal, Chip } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { Stack } from "@mui/system";
 
@@ -26,12 +26,17 @@ function CarouselBody({ project }) {
       <Carousel navButtonsAlwaysVisible={true}>
         {project.images?.map((image, i) => (
           <Stack key={i} alignItems={"center"}>
-            <img style={{ maxWidth: 900 }} src={"images/portfolio/" + image} />
+            <img
+              alt={image}
+              style={{ maxWidth: 900 }}
+              src={"images/portfolio/" + image}
+            />
           </Stack>
         ))}
       </Carousel>
     ) : (
       <img
+        alt={project.image}
         style={{ maxWidth: 900 }}
         src={"images/portfolio/" + project.image}
       />
@@ -85,6 +90,7 @@ function Buttons({ project }) {
                 className="project_button"
                 key={index}
                 target={"_blank"}
+                rel="noopener noreferrer"
                 href={project[item.url]}
               >
                 <i className={item.icon}></i>
@@ -220,7 +226,7 @@ function Portfolio({ data }) {
     } else {
       setActiveProject({});
     }
-  }, [open]);
+  }, [open, data, value]);
 
   const projects = data?.projects?.[value]?.projects;
   const projectsView = (

@@ -161,10 +161,11 @@ const Contact = ({ data }) => {
             <p className="address">
               {data?.name}
               <br />
-              {data?.address.street} <br />
-              {data?.address.city}, {data?.address.state} {data?.address.zip}
+              {data?.address.city}
               <br />
               <span>{data?.phone}</span>
+              <br />
+              <span>{data?.email}</span>
             </p>
           </div>
 

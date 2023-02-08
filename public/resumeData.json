@@ -1,21 +1,21 @@
 {
   "main": {
     "name": "Mina Naeem",
-    "occupation": "Full Stack Django / React developer",
+    "occupation": "Full Stack Web developer",
     "description": "",
     "image": "mina.jpg",
-    "bio": "My name is Mina, I'm a Full Stack Django/ReactJS Developer. Currently I'm working as a freelancer ",
+    "bio": "I am a software engineer who loves building web applications. I enjoy learning new technologies and concepts and improving my skills every day it's my passion.<br/> <br/> During the past years, I tried multiple different fields trying Andriod development, Data science, machine learning, and Game development before I finally settled on Software engineering and Web development during my search I improved my skills in problem-solving a lot because all these experiences made me able to adapt easily to new changes and learn quickly and I really enjoyed the journey.",
     "contactmessage": "Get in touch with me to receive further details, get coached or anything else.",
     "email": "menan381@gmail.com",
     "phone": "+20 127 182 3216",
     "address": {
-      "street": "33 louran strees",
+      "street": "",
       "city": "Alexandria",
       "state": "",
       "zip": ""
     },
     "website": "http://www.timbakerdev.com",
-    "resumedownload": "https://drive.google.com/file/d/1D_5z9IXfp8cB_9XGYrXVm3wbsIWIoubi/view",
+    "resumedownload": "https://drive.google.com/file/d/1gLNUFv3bTLLk7D6HVRNblVCvHM0--zLV/view?usp=share_link",
     "social": [
       {
         "name": "facebook",
@@ -38,24 +38,61 @@
     "skillmessage": "Here you can create a short write-up of your skills to show off to employers",
     "education": [
       {
-        "school": "University of Kent",
-        "degree": "Masters in Advanced Computer Science",
-        "graduated": "January 2017",
-        "description": "Graduated with Distinction"
-      }
+        "school": "Pharos university in Alexandria (PUA)",
+        "degrees": [
+          {
+            "degree": "Bachelor Degree in Computer Engineering,",
+            "graduated": "July 2022",
+            "description": "Graduated with GPA 3.75"
+          }
+        ]
+      },
+      {
+        "school": "Udacity",
+        "degrees": [
+          {
+            "degree": "Advanced Cloud developer Nanodegree program,",
+            "graduated": "September 2022",
+            "description": ""
+          },
+          {
+            "degree": "Advanced Web development Nanodegree program",
+            "graduated": "July 2020",
+            "description": ""
+          }
+        ]
+      },
+      {}
     ],
     "work": [
       {
-        "company": "Clever Programmer",
-        "title": "Team Member && React Specialist",
-        "years": "April 2020 - Present",
-        "description": "Teaching ReactJS to thousands of students."
+        "company": "Freelancer",
+        "title": "Web developer",
+        "years": "2020 Jul - 2021 Jun",
+        "description": [
+          "translated Figma designs to react.js projects",
+          "designed the ER and Relational models database for large systems and implemented them with Django",
+          "Design and implement a small and large backend system with Django"
+        ]
       },
       {
-        "company": "Lindar Media",
-        "title": "Software Engineer",
-        "years": "Nov 2019 - April 2020",
-        "description": "Building MrQ, a gambling website."
+        "company": "Inova (internship)",
+        "title": "Android Developer,",
+        "years": "2020 Sep – 2020 Oct",
+        "description": [
+          "converted an Android UI design into layout XML",
+          "Worked on a simple chat application with Java using firebase"
+        ]
+      },
+      {
+        "company": "IEEE PUA SB",
+        "title": "Web Developer Volunteer,",
+        "years": "2017 Oct – 2020 Aug",
+        "description": [
+          "integrated an existing website and admin dashboard with Laravel to make the website dynamic",
+          "deployed and maintained the website on digital ocean",
+          "lead a team of other volunteers and train them to learn about the technologies we use to manage the website"
+        ]
       }
     ],
     "skills": [
