@@ -511,6 +511,7 @@ ul#nav li.current a {
 
   background: url(../images/overlay-bg.png) repeat;
 }
+
 .portfolio-item .item-wrap .link-icon {
   display: block;
   color: #fff;
@@ -536,7 +537,8 @@ ul#nav li.current a {
   margin-top: -15px;
 }
 .portfolio-item .item-wrap img {
-  vertical-align: bottom;
+  vertical-align:bottom;
+  
 }
 .portfolio-item .portfolio-item-meta {
   padding: 18px;
@@ -1042,6 +1044,18 @@ call-to-action .button {
   color: #11abb0;
   font-size: 13px;
 }
+
+.form-field{
+  position : relative;
+}
+.form-field-error{
+  position : absolute;
+  color:#f35135;
+  left:26%;
+  bottom:-28px;
+}
+
+
 #message-warning,
 #message-success {
   display: none;

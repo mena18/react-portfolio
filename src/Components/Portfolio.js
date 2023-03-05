@@ -105,6 +105,7 @@ function Buttons({ project }) {
   );
 }
 function ModalBody({ open, handleClose, project }) {
+  const ProjectDescription = project?.description ? `<ul><li>${project?.description?.join("</li><li>")}</li></ul>` : project.small_description
   return (
     <Modal
       open={open}
@@ -122,10 +123,9 @@ function ModalBody({ open, handleClose, project }) {
             variant="p"
             component="p"
             sx={{ mt: 2 }}
+            dangerouslySetInnerHTML={{ __html: ProjectDescription }}
           >
-            {project?.description
-              ? project.description
-              : project.small_description}
+            
           </Typography>
           <SkillsBody project={project} />
           <Buttons project={project} />

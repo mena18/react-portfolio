@@ -147,7 +147,7 @@
             "small_description": "full featured blog with python and django3",
             "image": "blog.png",
             "github_url": "https://github.com/mena18/Django-Blog",
-            "description": "this is a Full featured blog build with python and Django where People can read articles and comment on them or share the article with friends",
+            "description": ["this is a Full featured blog build with python and Django where People can read articles and comment on them or share the article with friends the blog is built with microservices "],
             "skills": [
               "Html5",
               "Css3",
@@ -156,8 +156,8 @@
               "Jquery",
               "Python",
               "Django"
-            ],
-            "images": ["space_war.png", "tank.png"]
+            ]
+            
           },
           {
             "title": "E-learning Platform php",
@@ -171,14 +171,14 @@
               "admins can add new instructors and delete instructors & courses & students"
             ],
             "skills": ["Html5", "Css3", "JS", "PHP", "MySql"],
-            "images": ["space_war.png", "tank.png"]
+            "images": ["e-learning.png"]
           },
           {
             "title": "IEEEPUASB Website",
             "small_description": "Official website for ieeepuasb",
-            "image": "ieee.png",
+            "image": "ieee-small.png",
             "demo_url": "http://www.ieeepuasb.com",
-            "description": "",
+            "description": [],
             "skills": [
               "Html5",
               "Css3",
@@ -187,12 +187,14 @@
               "PHP",
               "MySql",
               "Laravel"
-            ]
+            ],
+            "images": ["ieee.png"]
           },
           {
             "title": "civil engineering Dashboard",
             "small_description": "Dashboard for civil engineering Website",
-            "image": "hci.png",
+            "image": "hci-small.png",
+            "images": ["hci.png"],
             "github_url": "https://github.com/mena18/HCI_Project",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Jquery", "Django", "D3.js"]
@@ -208,7 +210,8 @@
           {
             "title": "najlaa alsuwaidi web app",
             "small_description": "this is personal website for najlaa alsuwaidi to display and create articles and books",
-            "image": "nagla.png",
+            "image": "nagla-small.png",
+            "images": ["nagla.png"],
             "demo_url": "http://najlaa-alsuwaidi.me/",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django", "postgresql"]
@@ -216,36 +219,35 @@
           {
             "title": "Advanced Todolist",
             "small_description": "Web app to track your time and daily progress to increase productivity",
-            "image": "todo.png",
+            "image": "todo-small.png",
+            "images": ["todo.png"],
             "github_url": "https://github.com/mena18/TodoList",
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django"]
           },
-          {
-            "title": "trivia api",
-            "small_description": "platform that provides quizzes for users build with flask rest api and react",
-            "image": "trivia.png",
-            "github_url": "https://github.com/mena18/02_trivia_api",
-            "description": "",
-            "skills": [
-              "Js",
-              "React",
-              "postgresql",
-              "python",
-              "flask",
-              "rest api"
-            ]
-          },
+          
           {
             "title": "Beesarch",
             "small_description": "freelancing platform",
+            "image": "beesarch-home-small.png",
             "description": [
               "a freelancing platform for constructor workers",
               "clients can create contracts and select between freelancers then transfer the money using PayPal",
               "freelancers receive the money after each part of the project they finish",
               "the system has competitions for all freelancers to participate in and the client can choose the best 5 designs and they receive prize",
               "the system has support to fix conflicts"
-            ]
+            ],
+            "images": ["beesarch-home.png", "beesarch-how-it-works.png","beesarch-contact.png"]
+          },
+          {
+            "title": "Linkedin basic clone",
+            "small_description": "Linkedin",
+            "github_url":"https://github.com/mena18/Linkedin-Clone",
+            "demo_url":"https://linkedin-clone-7786b.web.app/",
+            "description": ["this is a very basic clone of linkedin"],
+            "image":"linkedin.png",
+            "images":["linkedin-demo.gif"],
+            "skills": ["Html5", "Css3", "JS", "Python", "Django"]
           }
         ]
       },
@@ -258,16 +260,19 @@
             "title": "Tank war",
             "small_description": "a 2D War Tank game with 3 different levels",
             "image": "tank.png",
+            "images": ["tank.png"],
             "github_url": "https://github.com/mena18/Tank_War",
-            "description": "a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks",
+            "demo_url" : "https://drive.google.com/file/d/14i79OfJWP5fN9kEXRevLfOqSFT8gsU9J/view?usp=sharing",
+            "description": ["a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks"],
             "skills": ["JAVA"]
           },
           {
             "title": "Space invadors",
             "small_description": "Space invador 2D game with pygame",
             "image": "space_war.png",
+            "images": ["space_war.png"],
             "github_url": "https://github.com/mena18/Space-war",
-            "description": "",
+            "description": [],
             "skills": ["python", "pygame"]
           }
         ]
@@ -282,7 +287,7 @@
             "small_description": "compiler build in python to run in linux machine ",
             "image": "compiler.png",
             "github_url": "https://github.com/mena18/Compiler-for-NASM",
-            "description": "this is basic a compiler written in python to convert easy written human language to assembly that get executed by nasm assembler in (x86-64) Machine it contains variable declaration , loop , if and else condition and print statement",
+            "description": ["this is basic a compiler written in python to convert easy written human language to assembly that get executed by nasm assembler in (x86-64) Machine it contains variable declaration , loop , if and else condition and print statement"],
             "skills": ["python", "compiler design"]
           },
           {
@@ -301,20 +306,24 @@
         "style": "AI",
         "projects": [
           {
-            "title": "Tank war",
-            "small_description": "a 2D War Tank game with 3 different levels",
-            "image": "tank.png",
-            "github_url": "https://github.com/mena18/Tank_War",
-            "description": "a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks",
-            "skills": ["JAVA"]
+            "title": "Arabic sign language Translator",
+            "small_description": "translating arabic text into signs using animations and the opposite",
+            "description": "",
+            "github_url":"https://github.com/mena18/sign-language-detection",
+            "demo_url":"https://drive.google.com/file/d/1hUkpaNWzSGavknSRrr8tHREaXOR5gFop/view?usp=sharing",
+            "skills": ["Python","Keras","Pytorch","OpenCV"],
+            "image":"sign-language.png"
+
+
+
           },
           {
-            "title": "Space invadors",
-            "small_description": "Space invador 2D game with pygame",
-            "image": "space_war.png",
-            "github_url": "https://github.com/mena18/Space-war",
+            "title": "Image captioning",
+            "small_description": "Using Flickr8k dataset since the size is 1GB. MS-COCO is 14GB! Used Keras with Tensorflow backend for the code. InceptionV3 is used for extracting the features.",
             "description": "",
-            "skills": ["python", "pygame"]
+            "skills": ["python","keras"],
+            "image":"image-caption.png",
+            "github_url":"https://github.com/mena18/image-captioning"
           }
         ]
       }

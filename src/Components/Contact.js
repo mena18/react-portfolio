@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import Button from "@mui/material/Button";
-
 const Contact = ({ data }) => {
   const [name, setName] = useState("");
   const [subject, setSubject] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({name:"",email:"",subject:"",message:""});
 
   const [ButtonText, setButtonText] = useState("Submit");
 
@@ -21,27 +21,48 @@ const Contact = ({ data }) => {
   };
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
-    setButtonText("Loading…");
-    emailjs
-      .sendForm(
-        "service_p52e6u8",
-        "template_v4xi7jo",
-        form.current,
-        "FfQSjympnsCkJG2qr"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          alert("email sent successfully we will reply soon");
-          clearData();
-        },
-        (error) => {
-          console.log(error.text);
-          alert("some error happen please try again later");
-          setButtonText("Submit");
-        }
-      );
+    const localErrors = {};
+    if(!name){
+      localErrors.name = "name is required"
+    }
+    if(!subject){
+      localErrors.subject = "subject is required"
+    }
+    if(!message){
+      localErrors.message = "message is required"
+    }
+    if(!email){
+      localErrors.email = "email is required"
+    }
+    if(email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(email)){
+      localErrors.email = "Invalid email address"
+    }
+    setErrors(localErrors)
+    if(!localErrors.name && !localErrors.email && !localErrors.subject && !localErrors.message){
+      setButtonText("Loading…");
+      emailjs
+        .sendForm(
+          "service_p52e6u8",
+          "template_v4xi7jo",
+          form.current,
+          "FfQSjympnsCkJG2qr"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+            alert("email sent successfully we will reply soon");
+            clearData();
+          },
+          (error) => {
+            console.log(error.text);
+            alert("some error happen please try again later");
+            setButtonText("Submit");
+          }
+        );
+    }
+    
 
     // window.open(`mailto:${email}?subject=${subject}&body=${name}: ${message}`);
   };
@@ -69,7 +90,7 @@ const Contact = ({ data }) => {
             onSubmit={handleSubmit}
           >
             <fieldset>
-              <div>
+              <div className="form-field">
                 <label htmlFor="contactName">
                   Name <span className="required">*</span>
                 </label>
@@ -82,9 +103,10 @@ const Contact = ({ data }) => {
                   name="contactName"
                   onChange={(e) => setName(e.target.value)}
                 />
+                <span className="form-field-error">{errors.name}</span>
               </div>
 
-              <div>
+              <div className="form-field">
                 <label htmlFor="contactEmail">
                   Email <span className="required">*</span>
                 </label>
@@ -97,9 +119,12 @@ const Contact = ({ data }) => {
                   name="contactEmail"
                   onChange={(e) => setEmail(e.target.value)}
                 />
+                
+                <span className="form-field-error">{errors.email}</span>
+                
               </div>
 
-              <div>
+              <div className="form-field">
                 <label htmlFor="contactSubject">Subject</label>
                 <input
                   value={subject}
@@ -110,9 +135,10 @@ const Contact = ({ data }) => {
                   name="contactSubject"
                   onChange={(e) => setSubject(e.target.value)}
                 />
+                <span className="form-field-error">{errors.subject}</span>
               </div>
 
-              <div>
+              <div className="form-field">
                 <label htmlFor="contactMessage">
                   Message <span className="required">*</span>
                 </label>
@@ -124,6 +150,7 @@ const Contact = ({ data }) => {
                   id="contactMessage"
                   name="contactMessage"
                 ></textarea>
+                <span className="form-field-error">{errors.message}</span>
               </div>
 
               <div>
