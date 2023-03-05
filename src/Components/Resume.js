@@ -1,9 +1,42 @@
 import React, { Component } from "react";
 
+
+function SkillsSection ({skillmessage,skills}){
+  const renderedSkills = skills?.map(function (skills) {
+    const className = "bar-expand " + skills.name.toLowerCase();
+    return (
+      <li key={skills.name}>
+        <span style={{ width: skills.level }} className={className}></span>
+        <em>{skills.name}</em>
+      </li>
+    );
+  });
+  return (
+    <div className="row skill">
+          <div className="three columns header-col">
+            <h1>
+              <span>Skills</span>
+            </h1>
+          </div>
+
+          <div className="nine columns main-col">
+            <p>{skillmessage}</p>
+
+            <div className="bars">
+              <ul className="skills">{renderedSkills}</ul>
+              
+            </div>
+          </div>
+        </div>
+  )
+}
+
+
 class Resume extends Component {
   render() {
     if (this.props.data) {
       var skillmessage = this.props.data.skillmessage;
+      var skills = this.props.data.skills;
       var education = this.props.data.education.map(function (education) {
         return (
           <div key={education.school}>
@@ -40,15 +73,7 @@ class Resume extends Component {
           </div>
         );
       });
-      var skills = this.props.data.skills.map(function (skills) {
-        var className = "bar-expand " + skills.name.toLowerCase();
-        return (
-          <li key={skills.name}>
-            <span style={{ width: skills.level }} className={className}></span>
-            <em>{skills.name}</em>
-          </li>
-        );
-      });
+      
     }
 
     return (
@@ -77,21 +102,7 @@ class Resume extends Component {
           <div className="nine columns main-col">{work}</div>
         </div>
 
-        <div className="row skill">
-          <div className="three columns header-col">
-            <h1>
-              <span>Skills</span>
-            </h1>
-          </div>
-
-          <div className="nine columns main-col">
-            <p>{skillmessage}</p>
-
-            <div className="bars">
-              <ul className="skills">{skills}</ul>
-            </div>
-          </div>
-        </div>
+        <SkillsSection skillmessage={skillmessage} skills={skills}/>
       </section>
     );
   }
