@@ -1,18 +1,81 @@
-import React, { Component } from "react";
+import React, { Component, useEffect,useState,useRef } from "react";
+
+
+// use it later
+// const useElementOnScreen = (options) => {
+//   const containerRef = useRef(null)
+//   const [ isVisible, setIsVisible ] = useState(false)
+
+//   const callbackFunction = (entries,observer) => {
+//     const [ entry ] = entries
+//     setIsVisible(entry.isIntersecting)
+    
+//   }
+
+//   useEffect(() => {
+    
+//     const observer = new IntersectionObserver(callbackFunction, options)
+//     if (containerRef.current) observer.observe(containerRef.current)
+    
+//     return () => {
+//       if(containerRef.current) observer.unobserve(containerRef.current)
+//     }
+//   }, [containerRef, options])
+
+//   return [containerRef, isVisible]
+// }
 
 
 function SkillsSection ({skillmessage,skills}){
-  const renderedSkills = skills?.map(function (skills) {
-    const className = "bar-expand " + skills.name.toLowerCase();
-    return (
-      <li key={skills.name}>
-        <span style={{ width: skills.level }} className={className}></span>
-        <em>{skills.name}</em>
-      </li>
-    );
-  });
+  const [renderedSkills,setRenderedSkills] = useState(null);
+  const ref = useRef(null);
+  useEffect(()=>{
+    
+    let observer = new IntersectionObserver((entries, observer) => { // This takes a callback function that receives two arguments: the elements list and the observer instance.
+      entries.forEach(entry => {
+        // `entry.isIntersecting` will be true if the element is visible
+        
+        if(entry.isIntersecting) {
+        if(skills){
+
+          const newSkills = (skills?.map(function (skills) {
+            const className = "bar-expand " + skills.name.toLowerCase();
+            return (
+              <li key={skills.name}>
+                <span style={{ width: skills.level }} className={className}></span>
+                <em>{skills.name}</em>
+              </li>
+            );
+          }))
+          setRenderedSkills(newSkills)
+          console.error(newSkills)
+        }
+        // We are removing the observer from the element after adding the active class
+        if(ref?.current){
+          observer.unobserve(ref.current)
+        }
+      }
+    })
+  })
+  if(ref?.current){
+    observer.observe(ref.current)
+  }
+
+  },[ref,skills])
+
+
+  
+  // const renderedSkills = skills?.map(function (skills) {
+  //   const className = "bar-expand " + skills.name.toLowerCase();
+  //   return (
+  //     <li key={skills.name}>
+  //       <span style={{ width: skills.level }} className={className}></span>
+  //       <em>{skills.name}</em>
+  //     </li>
+  //   );
+  // });
   return (
-    <div className="row skill">
+    <div className="row skill" ref={ref}>
           <div className="three columns header-col">
             <h1>
               <span>Skills</span>
