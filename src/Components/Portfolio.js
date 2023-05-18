@@ -28,7 +28,6 @@ const NormalModalstyle = {
   overflowX: "hidden",
   overflowY: "scroll",
 };
-//  TODO write about how the contact work and the tool for sending emails
 
 function CarouselBody({ project }) {
   const handleImageClicked = (src) => {
@@ -135,8 +134,6 @@ function ModalBody({ open, handleClose, project }) {
         "</li><li>"
       )}</li></ul>`
     : project.small_description;
-
-  //  TODO write about how i made the modal responsive and making it center using flex
 
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
