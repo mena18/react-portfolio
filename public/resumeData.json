@@ -4,7 +4,7 @@
     "occupation": "Full Stack Web developer",
     "description": "",
     "image": "mina.jpg",
-    "bio": "I am a software engineer who loves building web applications. I enjoy learning new technologies and concepts and improving my skills every day it's my passion.<br/> <br/> During the past years, I tried multiple different fields trying Andriod development, Data science, machine learning, and Game development before I finally settled on Software engineering and Web development during my search I improved my skills in problem-solving a lot because all these experiences made me able to adapt easily to new changes and learn quickly and I really enjoyed the journey.",
+    "bio": "As a passionate software engineer, I thrive on building innovative web applications that push the boundaries of what's possible. I'm constantly seeking out new technologies and concepts to learn, and I'm committed to improving my skills every day.<br> <br> Over the years, I've explored a variety of fields including Android development, data science, machine learning, and game development. These experiences have helped me to develop a strong foundation in problem-solving, adaptability, and quick learning. Ultimately, I've found my calling in software engineering and web development, and I've honed my skills to become an expert in these areas. I'm excited to continue growing and evolving in my career, always pushing the envelope and striving for excellence.",
     "contactmessage": "Get in touch with me to receive further details, get coached or anything else.",
     "email": "menan381@gmail.com",
     "phone": "+20 127 182 3216",
@@ -31,6 +31,11 @@
         "name": "github",
         "url": "https://github.com/mena18",
         "className": "fa fa-github"
+      },
+      {
+        "name": "blog",
+        "url": "https://mina-naeem.devdojo.com/",
+        "className": "fa fa-pencil-square-o"
       }
     ]
   },
@@ -132,7 +137,6 @@
         "name": "Java",
         "level": "60%"
       }
-
     ]
   },
   "portfolio": {
@@ -143,11 +147,41 @@
         "style": "web",
         "projects": [
           {
+            "title": "cafe-playstation management ",
+            "small_description": "System to manage Playstation and cafe",
+            "image": "cafe-rooms.png",
+            "images": [
+              "cafe-rooms.png",
+              "cafe-receipt.png",
+              "cafe-charts.png",
+              "cafe-archive.png",
+              "cafe-room-body.png"
+            ],
+            "links": {
+              "project Demo Video": "https://drive.google.com/file/d/1qpchhbe6myOvte-xSM3gxYfEib3wbKb-/view?usp=sharing"
+            },
+
+            "description": [
+              "This is a cafe management system that includes dedicated Playstation rooms for customers to enjoy. This system streamlines the ordering process, allowing customers to place their orders and pay directly through the platform. Additionally, the system includes features such as table management, inventory tracking, and employee section, archive sections to view all previous orders. The Playstation rooms are equipped with the latest gaming consoles and accessories to provide customers with a fun and immersive gaming experience."
+            ],
+            "skills": [
+              "Html5",
+              "Css3",
+              "React.js",
+              "Material UI",
+              "Django",
+              "postgresql"
+            ]
+          },
+          {
             "title": "blog with Django",
             "small_description": "full featured blog with python and django3",
             "image": "blog.png",
-            "github_url": "https://github.com/mena18/Django-Blog",
-            "description": ["this is a Full featured blog build with python and Django where People can read articles and comment on them or share the article with friends the blog is built with microservices "],
+
+            "links": { "github repo": "https://github.com/mena18/Django-Blog" },
+            "description": [
+              "this is a Full featured blog build with python and Django where People can read articles and comment on them or share the article with friends the blog is built with microservices "
+            ],
             "skills": [
               "Html5",
               "Css3",
@@ -157,13 +191,15 @@
               "Python",
               "Django"
             ]
-            
           },
           {
             "title": "E-learning Platform php",
             "small_description": "this is an E-learning platform build with php/MVC providing free courses",
             "image": "e-learning.png",
-            "github_url": "https://github.com/mena18/Online-courses",
+
+            "links": {
+              "github repo": "https://github.com/mena18/Online-courses"
+            },
             "description": [
               "an E-learning platform contains 3 user roles (student,instructor,admin)",
               "Students can enroll in courses and watch lessons, solve assignments, take quizzes, download resources and watch their progress in all their courses, and can communicate with the instructor",
@@ -176,9 +212,14 @@
           {
             "title": "IEEEPUASB Website",
             "small_description": "Official website for ieeepuasb",
-            "image": "ieee-small.png",
-            "demo_url": "http://www.ieeepuasb.com",
-            "description": [],
+            "image": "ieee.png",
+
+            "links": {
+              "github repo": "https://github.com/mena18/ieee-laravel"
+            },
+            "description": [
+              "During my college years, I developed with my friends a comprehensive website for IEEE volunteering that served as a hub for all IEEE events, courses, and initiatives. The website featured an easy-to-navigate platform that allowed college students to register for upcoming events and join ongoing courses. In addition to event registration, the website provided a list of all registered volunteers and their progress within the courses. The platform also included a library of informative articles and resources to help volunteers stay informed and engaged. Overall, the website was designed to encourage volunteering within the IEEE community and to help engineering student to enrich their knowledge."
+            ],
             "skills": [
               "Html5",
               "Css3",
@@ -190,63 +231,68 @@
             ],
             "images": ["ieee.png"]
           },
-          {
-            "title": "civil engineering Dashboard",
-            "small_description": "Dashboard for civil engineering Website",
-            "image": "hci-small.png",
-            "images": ["hci.png"],
-            "github_url": "https://github.com/mena18/HCI_Project",
-            "description": "",
-            "skills": ["Html5", "Css3", "JS", "Jquery", "Django", "D3.js"]
-          },
+
           {
             "title": "E-commerce website with django",
             "small_description": "A Clothes  E-commerce  with django using stripe for payment",
             "image": "e-commerce.png",
-            "github_url": "https://github.com/mena18/Django-Ecommerce",
-            "description": "",
+            "links": {
+              "github repo": "https://github.com/mena18/Django-Ecommerce",
+
+              "project demo video": "https://drive.google.com/file/d/1ZTsX1D8YA4gO_H630hVMetfsr7VCpxqZ/view?usp=sharing"
+            },
+
+            "description": [
+              "simple yet effective e-commerce platform for clothing that allows customers to add items to their shopping cart and apply discount coupons for savings at checkout. The platform also features a secure and easy-to-use payment system that enables customers to pay using their credit card. With a user-friendly interface and intuitive navigation, customers can easily browse through the available clothing items and filter their search results style."
+            ],
             "skills": ["Html5", "Css3", "JS", "Python", "Django", "stripe"]
           },
           {
             "title": "najlaa alsuwaidi web app",
             "small_description": "this is personal website for najlaa alsuwaidi to display and create articles and books",
-            "image": "nagla-small.png",
+            "image": "nagla.png",
             "images": ["nagla.png"],
-            "demo_url": "http://najlaa-alsuwaidi.me/",
+
+            "links": { "project url": "http://najlaa-alsuwaidi.me/" },
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django", "postgresql"]
           },
           {
             "title": "Advanced Todolist",
             "small_description": "Web app to track your time and daily progress to increase productivity",
-            "image": "todo-small.png",
+            "image": "todo.png",
             "images": ["todo.png"],
-            "github_url": "https://github.com/mena18/TodoList",
+
+            "links": { "github repo": "https://github.com/mena18/TodoList" },
             "description": "",
             "skills": ["Html5", "Css3", "JS", "Python", "Django"]
           },
-          
+
           {
             "title": "Beesarch",
             "small_description": "freelancing platform",
             "image": "beesarch-home-small.png",
+            "links": {},
             "description": [
-              "a freelancing platform for constructor workers",
-              "clients can create contracts and select between freelancers then transfer the money using PayPal",
-              "freelancers receive the money after each part of the project they finish",
-              "the system has competitions for all freelancers to participate in and the client can choose the best 5 designs and they receive prize",
-              "the system has support to fix conflicts"
+              "a freelancing platform specifically designed for construction workers. The platform allows clients to create contracts and choose from a pool of freelancers based on their qualifications and expertise. Clients can use PayPal to transfer funds to the freelancers as each part of the project is completed. Additionally, the platform includes a competition system that allows freelancers to showcase their skills and compete for prizes. Clients can choose the best five designs and award prizes accordingly. To ensure a smooth and fair process, the platform also features a conflict resolution system to help resolve any disputes that may arise. Overall, Beesarch was designed to provide a user-friendly and effective platform for both clients and freelancers in the construction industry."
             ],
-            "images": ["beesarch-home.png", "beesarch-how-it-works.png","beesarch-contact.png"]
+            "images": [
+              "beesarch-home.png",
+              "beesarch-how-it-works.png",
+              "beesarch-contact.png"
+            ]
           },
           {
             "title": "Linkedin basic clone",
             "small_description": "Linkedin",
-            "github_url":"https://github.com/mena18/Linkedin-Clone",
-            "demo_url":"https://linkedin-clone-7786b.web.app/",
+
+            "links": {
+              "github repo": "https://github.com/mena18/Linkedin-Clone",
+              "project url": "https://linkedin-clone-7786b.web.app/"
+            },
             "description": ["this is a very basic clone of linkedin"],
-            "image":"linkedin.png",
-            "images":["linkedin-demo.gif"],
+            "image": "linkedin.png",
+            "images": ["linkedin-demo.gif"],
             "skills": ["Html5", "Css3", "JS", "Python", "Django"]
           }
         ]
@@ -261,9 +307,15 @@
             "small_description": "a 2D War Tank game with 3 different levels",
             "image": "tank.png",
             "images": ["tank.png"],
-            "github_url": "https://github.com/mena18/Tank_War",
-            "demo_url" : "https://drive.google.com/file/d/14i79OfJWP5fN9kEXRevLfOqSFT8gsU9J/view?usp=sharing",
-            "description": ["a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks"],
+
+            "links": {
+              "github repo": "https://github.com/mena18/Tank_War",
+
+              "project demo video": "https://drive.google.com/file/d/14i79OfJWP5fN9kEXRevLfOqSFT8gsU9J/view?usp=sharing"
+            },
+            "description": [
+              "a 2D game we made in java as a project in college where the player is tank and fights other tank to destroy all of them and move to the next level and there is bonus when destroying other tanks"
+            ],
             "skills": ["JAVA"]
           },
           {
@@ -271,8 +323,11 @@
             "small_description": "Space invador 2D game with pygame",
             "image": "space_war.png",
             "images": ["space_war.png"],
-            "github_url": "https://github.com/mena18/Space-war",
-            "description": [],
+
+            "links": { "github repo": "https://github.com/mena18/Space-war" },
+            "description": [
+              "I developed a classic Space Invaders game using Pygame, a popular gaming library for Python. The game features three levels of increasing difficulty, with players controlling a spaceship and shooting at enemy aliens as they descend from the top of the screen. Players have three lives and must dodge the aliens' attacks while shooting them down. The game also includes bonuses that increase the player's bullet speed and score. I used Pygame's built-in features to design the game's graphics, sound effects, and animations, ensuring a smooth and immersive gameplay experience. Overall, my Space Invaders game is a fun and engaging tribute to this classic arcade game that will keep players entertained for hours."
+            ],
             "skills": ["python", "pygame"]
           }
         ]
@@ -286,15 +341,23 @@
             "title": "Compiler-for-NASM",
             "small_description": "compiler build in python to run in linux machine ",
             "image": "compiler.png",
-            "github_url": "https://github.com/mena18/Compiler-for-NASM",
-            "description": ["this is basic a compiler written in python to convert easy written human language to assembly that get executed by nasm assembler in (x86-64) Machine it contains variable declaration , loop , if and else condition and print statement"],
+
+            "links": {
+              "github repo": "https://github.com/mena18/Compiler-for-NASM"
+            },
+            "description": [
+              "this is basic a compiler written in python to convert easy written human language to assembly that get executed by nasm assembler in (x86-64) Machine it contains variable declaration , loop , if and else condition and print statement"
+            ],
             "skills": ["python", "compiler design"]
           },
           {
             "title": "Pyqt5 youtube downloader",
             "small_description": "Desktop application to download from the internet or downloading youtube videos using python and pyqt5",
             "image": "downloader.png",
-            "github_url": "https://github.com/mena18/PyQt5-Downloader",
+
+            "links": {
+              "github repo": "https://github.com/mena18/PyQt5-Downloader"
+            },
             "description": "",
             "skills": ["python", "Pyqt5"]
           }
@@ -302,28 +365,33 @@
       },
       {
         "code": 3,
-        "title": "AI",
+        "title": "Machine learning",
         "style": "AI",
         "projects": [
           {
             "title": "Arabic sign language Translator",
             "small_description": "translating arabic text into signs using animations and the opposite",
-            "description": "",
-            "github_url":"https://github.com/mena18/sign-language-detection",
-            "demo_url":"https://drive.google.com/file/d/1hUkpaNWzSGavknSRrr8tHREaXOR5gFop/view?usp=sharing",
-            "skills": ["Python","Keras","Pytorch","OpenCV"],
-            "image":"sign-language.png"
+            "description": [
+              "I developed an Arabic sign language translator that allows users to translate Arabic text or video into sign language. The project includes a mobile and web interface that is connected to a backend system. Users can input Arabic text and the system will return an animated character performing the corresponding sign language movement. Alternatively, users can input a sign language video and the system will identify the sign name. The system is also able to differentiate between sign language words letters"
+            ],
 
-
-
+            "links": {
+              "github repo": "https://github.com/mena18/sign-language-detection",
+              "project demo video": "https://drive.google.com/file/d/1hUkpaNWzSGavknSRrr8tHREaXOR5gFop/view?usp=sharing"
+            },
+            "skills": ["Python", "Keras", "Pytorch", "OpenCV"],
+            "image": "sign-language.png"
           },
           {
             "title": "Image captioning",
             "small_description": "Using Flickr8k dataset since the size is 1GB. MS-COCO is 14GB! Used Keras with Tensorflow backend for the code. InceptionV3 is used for extracting the features.",
             "description": "",
-            "skills": ["python","keras"],
-            "image":"image-caption.png",
-            "github_url":"https://github.com/mena18/image-captioning"
+            "skills": ["python", "keras"],
+            "image": "image-caption.png",
+
+            "links": {
+              "github repo": "https://github.com/mena18/image-captioning"
+            }
           }
         ]
       }

@@ -1008,6 +1008,12 @@ input[type="checkbox"] {
 [class*="bgrid"] [class*="column"] + [class*="column"]:last-child {
   float: left;
 }
+.css-1mgcds5-MuiButtonBase-root-MuiTab-root.Mui-selected {
+  color: #11abb0 !important;
+}
+.css-1mgcds5-MuiButtonBase-root-MuiTab-root.Mui-selected:hover {
+  color: white !important;
+}
 
 /* Left clearing for block grid columns - columns that changes width in
 different screen sizes. Allows columns with different heights to align

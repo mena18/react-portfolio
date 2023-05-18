@@ -1,0 +1,19 @@
+{"bio": "I am a software engineer who loves building web applications. I enjoy learning new technologies and concepts and improving my skills every day it's my passion.<br/> <br/> During the past years, I tried multiple different fields trying Andriod development, Data science, machine learning, and Game development before I finally settled on Software engineering and Web development during my search I improved my skills in problem-solving a lot because all these experiences made me able to adapt easily to new changes and learn quickly and I really enjoyed the journey.",
+  
+"projects":[{
+            "title": "civil engineering Dashboard",
+            "small_description": "Dashboard for civil engineering Website",
+            "image": "hci-small.png",
+            "images": ["hci.png"],
+            "github_url": "https://github.com/mena18/HCI_Project",
+            "description": "",
+            "skills": ["Html5", "Css3", "JS", "Jquery", "Django", "D3.js"]
+          },{
+            "beesarch_old_description":["a freelancing platform for constructor workers",
+            "clients can create contracts and select between freelancers then transfer the money using PayPal",
+            "freelancers receive the money after each part of the project they finish",
+            "the system has competitions for all freelancers to participate in and the client can choose the best 5 designs and they receive prize",
+            "the system has support to fix conflicts"]
+          }
+]
+}

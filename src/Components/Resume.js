@@ -1,5 +1,4 @@
-import React, { Component, useEffect,useState,useRef } from "react";
-
+import React, { Component, useEffect, useState, useRef } from "react";
 
 // use it later
 // const useElementOnScreen = (options) => {
@@ -9,14 +8,14 @@ import React, { Component, useEffect,useState,useRef } from "react";
 //   const callbackFunction = (entries,observer) => {
 //     const [ entry ] = entries
 //     setIsVisible(entry.isIntersecting)
-    
+
 //   }
 
 //   useEffect(() => {
-    
+
 //     const observer = new IntersectionObserver(callbackFunction, options)
 //     if (containerRef.current) observer.observe(containerRef.current)
-    
+
 //     return () => {
 //       if(containerRef.current) observer.unobserve(containerRef.current)
 //     }
@@ -25,46 +24,56 @@ import React, { Component, useEffect,useState,useRef } from "react";
 //   return [containerRef, isVisible]
 // }
 
-
-function SkillsSection ({skillmessage,skills}){
-  const [renderedSkills,setRenderedSkills] = useState(null);
+function SkillsSection({ skillmessage, skills }) {
+  const [renderedSkills, setRenderedSkills] = useState(null);
   const ref = useRef(null);
-  useEffect(()=>{
-    
-    let observer = new IntersectionObserver((entries, observer) => { // This takes a callback function that receives two arguments: the elements list and the observer instance.
-      entries.forEach(entry => {
+  useEffect(() => {
+    let observer = new IntersectionObserver((entries, observer) => {
+      // This takes a callback function that receives two arguments: the elements list and the observer instance.
+      entries.forEach((entry) => {
         // `entry.isIntersecting` will be true if the element is visible
-        
-        if(entry.isIntersecting) {
-        if(skills){
 
-          const newSkills = (skills?.map(function (skills) {
-            const className = "bar-expand " + skills.name.toLowerCase();
+        if (entry.isIntersecting) {
+          if (skills) {
+            const newSkills = skills?.map(function (skills) {
+              const className = "bar-expand " + skills.name.toLowerCase();
+              return (
+                <li key={skills.name}>
+                  <span
+                    style={{ width: skills.level }}
+                    className={className}
+                  ></span>
+                  <em>{skills.name}</em>
+                </li>
+              );
+            });
+            setRenderedSkills(newSkills);
+            console.error(newSkills);
+          }
+          // We are removing the observer from the element after adding the active class
+          if (ref?.current) {
+            observer.unobserve(ref.current);
+          }
+        } else {
+          const newSkills = skills?.map(function (skills) {
+            const className = "bar-expand ";
             return (
               <li key={skills.name}>
-                <span style={{ width: skills.level }} className={className}></span>
+                <span style={{ width: 0 }} className={className}></span>
                 <em>{skills.name}</em>
               </li>
             );
-          }))
-          setRenderedSkills(newSkills)
-          console.error(newSkills)
+          });
+          setRenderedSkills(newSkills);
+          console.error("the not observed displayment");
         }
-        // We are removing the observer from the element after adding the active class
-        if(ref?.current){
-          observer.unobserve(ref.current)
-        }
-      }
-    })
-  })
-  if(ref?.current){
-    observer.observe(ref.current)
-  }
+      });
+    });
+    if (ref?.current) {
+      observer.observe(ref.current);
+    }
+  }, [ref, skills]);
 
-  },[ref,skills])
-
-
-  
   // const renderedSkills = skills?.map(function (skills) {
   //   const className = "bar-expand " + skills.name.toLowerCase();
   //   return (
@@ -76,24 +85,22 @@ function SkillsSection ({skillmessage,skills}){
   // });
   return (
     <div className="row skill" ref={ref}>
-          <div className="three columns header-col">
-            <h1>
-              <span>Skills</span>
-            </h1>
-          </div>
+      <div className="three columns header-col">
+        <h1>
+          <span>Skills</span>
+        </h1>
+      </div>
 
-          <div className="nine columns main-col">
-            <p>{skillmessage}</p>
+      <div className="nine columns main-col">
+        <p>{skillmessage}</p>
 
-            <div className="bars">
-              <ul className="skills">{renderedSkills}</ul>
-              
-            </div>
-          </div>
+        <div className="bars">
+          <ul className="skills">{renderedSkills}</ul>
         </div>
-  )
+      </div>
+    </div>
+  );
 }
-
 
 class Resume extends Component {
   render() {
@@ -136,7 +143,6 @@ class Resume extends Component {
           </div>
         );
       });
-      
     }
 
     return (
@@ -165,7 +171,7 @@ class Resume extends Component {
           <div className="nine columns main-col">{work}</div>
         </div>
 
-        <SkillsSection skillmessage={skillmessage} skills={skills}/>
+        <SkillsSection skillmessage={skillmessage} skills={skills} />
       </section>
     );
   }
