@@ -4,6 +4,8 @@ import PropTypes from "prop-types";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import ModalImage from "react-modal-image";
+
 import {
   Typography,
   Box,
@@ -29,37 +31,40 @@ const NormalModalstyle = {
   overflowY: "scroll",
 };
 
+function ImageComponent({ src, handleClick }) {
+  return (
+    <ModalImage
+      small={"images/portfolio/" + src}
+      large={"images/portfolio/" + src}
+      alt={src}
+    />
+  );
+}
+
 function CarouselBody({ project }) {
   const handleImageClicked = (src) => {
     window.location.href = src;
     // console.error(src);
   };
 
+  // <Carousel navButtonsAlwaysInvisible={true} autoPlay={false}>
+  {
+    /* {project.images?.map((image, i) => ( */
+  }
+  // <Stack key={i} alignItems={"center"}>
+  // <ImageComponent src={project.images[0]} handleClick={handleImageClicked} />
+  // </Stack>
+  //   ))}
+  // </Carousel>
+
   const data =
     project?.images?.length > 1 ? (
-      <Carousel navButtonsAlwaysVisible={true}>
-        {project.images?.map((image, i) => (
-          <Stack key={i} alignItems={"center"}>
-            <img
-              onClick={() => {
-                handleImageClicked("images/portfolio/" + image);
-              }}
-              alt={image}
-              style={{ maxWidth: "100%", cursor: "pointer" }}
-              src={"images/portfolio/" + image}
-            />
-          </Stack>
-        ))}
-      </Carousel>
-    ) : (
-      <img
-        alt={project.image}
-        style={{ maxWidth: "100%", cursor: "pointer" }}
-        src={"images/portfolio/" + project.image}
-        onClick={() => {
-          handleImageClicked("images/portfolio/" + project.image);
-        }}
+      <ImageComponent
+        src={project.images[0]}
+        handleClick={handleImageClicked}
       />
+    ) : (
+      <ImageComponent src={project.image} handleClick={handleImageClicked} />
     );
 
   return <>{data}</>;
@@ -381,7 +386,6 @@ function TestPortfolio({ data }) {
                       ...tabsSmallStyle,
                     },
                   }}
-                  // TODO write about the Tabs changes to become one direction changes in notes
                 >
                   {data?.projects?.map((projectsGroup, index) => {
                     return (
