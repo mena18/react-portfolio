@@ -996,7 +996,12 @@ input[type="checkbox"] {
   width: 16.66667%;
 }
 .bgrid-quarters [class*="column"] {
-  width: 33%;
+  /* old */
+  /* width: 33%; */
+
+  /* new : changed by mina */
+  width: 50%;
+  height: 250px;
 } /* changed by mina */
 .bgrid-thirds [class*="column"] {
   width: 33.33333%;
