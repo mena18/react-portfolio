@@ -177,6 +177,7 @@
             "title": "blog with Django",
             "small_description": "full featured blog with python and django3",
             "image": "blog.png",
+            "images": ["blog.png"],
 
             "links": { "github repo": "https://github.com/mena18/Django-Blog" },
             "description": [
@@ -196,6 +197,7 @@
             "title": "E-learning Platform php",
             "small_description": "this is an E-learning platform build with php/MVC providing free courses",
             "image": "e-learning.png",
+            "images": ["e-learning.png"],
 
             "links": {
               "github repo": "https://github.com/mena18/Online-courses"
@@ -206,13 +208,13 @@
               "instructors can CURD all their courses and lessons and quizzes",
               "admins can add new instructors and delete instructors & courses & students"
             ],
-            "skills": ["Html5", "Css3", "JS", "PHP", "MySql"],
-            "images": ["e-learning.png"]
+            "skills": ["Html5", "Css3", "JS", "PHP", "MySql"]
           },
           {
             "title": "IEEEPUASB Website",
             "small_description": "Official website for ieeepuasb",
             "image": "ieee.png",
+            "images": ["ieee.png"],
 
             "links": {
               "github repo": "https://github.com/mena18/ieee-laravel"
@@ -228,14 +230,14 @@
               "PHP",
               "MySql",
               "Laravel"
-            ],
-            "images": ["ieee.png"]
+            ]
           },
 
           {
             "title": "E-commerce website with django",
             "small_description": "A Clothes  E-commerce  with django using stripe for payment",
             "image": "e-commerce.png",
+            "images": ["e-commerce.png"],
             "links": {
               "github repo": "https://github.com/mena18/Django-Ecommerce",
 
@@ -272,14 +274,14 @@
             "title": "Beesarch",
             "small_description": "freelancing platform",
             "image": "beesarch-home-small.png",
-            "links": {},
-            "description": [
-              "a freelancing platform specifically designed for construction workers. The platform allows clients to create contracts and choose from a pool of freelancers based on their qualifications and expertise. Clients can use PayPal to transfer funds to the freelancers as each part of the project is completed. Additionally, the platform includes a competition system that allows freelancers to showcase their skills and compete for prizes. Clients can choose the best five designs and award prizes accordingly. To ensure a smooth and fair process, the platform also features a conflict resolution system to help resolve any disputes that may arise. Overall, Beesarch was designed to provide a user-friendly and effective platform for both clients and freelancers in the construction industry."
-            ],
             "images": [
               "beesarch-home.png",
               "beesarch-how-it-works.png",
               "beesarch-contact.png"
+            ],
+            "links": {},
+            "description": [
+              "a freelancing platform specifically designed for construction workers. The platform allows clients to create contracts and choose from a pool of freelancers based on their qualifications and expertise. Clients can use PayPal to transfer funds to the freelancers as each part of the project is completed. Additionally, the platform includes a competition system that allows freelancers to showcase their skills and compete for prizes. Clients can choose the best five designs and award prizes accordingly. To ensure a smooth and fair process, the platform also features a conflict resolution system to help resolve any disputes that may arise. Overall, Beesarch was designed to provide a user-friendly and effective platform for both clients and freelancers in the construction industry."
             ]
           },
           {
@@ -341,6 +343,7 @@
             "title": "Compiler-for-NASM",
             "small_description": "compiler build in python to run in linux machine ",
             "image": "compiler.png",
+            "images": ["compiler.png"],
 
             "links": {
               "github repo": "https://github.com/mena18/Compiler-for-NASM"
@@ -354,6 +357,7 @@
             "title": "Pyqt5 youtube downloader",
             "small_description": "Desktop application to download from the internet or downloading youtube videos using python and pyqt5",
             "image": "downloader.png",
+            "images": ["downloader.png"],
 
             "links": {
               "github repo": "https://github.com/mena18/PyQt5-Downloader"
@@ -380,7 +384,8 @@
               "project demo video": "https://drive.google.com/file/d/1hUkpaNWzSGavknSRrr8tHREaXOR5gFop/view?usp=sharing"
             },
             "skills": ["Python", "Keras", "Pytorch", "OpenCV"],
-            "image": "sign-language.png"
+            "image": "sign-language.png",
+            "images": ["sign-language.png"]
           },
           {
             "title": "Image captioning",
@@ -388,6 +393,7 @@
             "description": "",
             "skills": ["python", "keras"],
             "image": "image-caption.png",
+            "images": ["image-caption.png"],
 
             "links": {
               "github repo": "https://github.com/mena18/image-captioning"

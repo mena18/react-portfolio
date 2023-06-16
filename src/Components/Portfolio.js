@@ -4,7 +4,8 @@ import PropTypes from "prop-types";
 
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import ModalImage from "react-modal-image";
+
+import Lightbox from "react-image-lightbox";
 
 import {
   Typography,
@@ -16,6 +17,7 @@ import {
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { Stack } from "@mui/system";
+import "react-image-lightbox/style.css"; // T
 
 const NormalModalstyle = {
   position: "absolute",
@@ -33,29 +35,35 @@ const NormalModalstyle = {
 
 function ImageComponent({ src, handleClick }) {
   return (
-    <ModalImage
-      small={"images/portfolio/" + src}
-      large={"images/portfolio/" + src}
+    <img
+      style={{ cursor: "pointer" }}
+      src={"images/portfolio/" + src}
+      onClick={handleClick}
       alt={src}
     />
   );
 }
 
-function CarouselBody({ project }) {
-  const handleImageClicked = (src) => {
-    window.location.href = src;
-    // console.error(src);
+function CarouselBody({
+  project,
+  handleModalClose,
+  isLightBoxOpen,
+  setIsLightBoxOpen,
+  lightBoxPhotoIndex,
+  setLightBoxPhotoIndex,
+  images,
+  setImages,
+}) {
+  const handleImageClicked = () => {
+    setIsLightBoxOpen(true);
+    setLightBoxPhotoIndex(0);
+    setImages(
+      project.images.map((image) => {
+        return "images/portfolio/" + image;
+      })
+    );
+    handleModalClose();
   };
-
-  // <Carousel navButtonsAlwaysInvisible={true} autoPlay={false}>
-  {
-    /* {project.images?.map((image, i) => ( */
-  }
-  // <Stack key={i} alignItems={"center"}>
-  // <ImageComponent src={project.images[0]} handleClick={handleImageClicked} />
-  // </Stack>
-  //   ))}
-  // </Carousel>
 
   const data =
     project?.images?.length > 1 ? (
@@ -67,7 +75,14 @@ function CarouselBody({ project }) {
       <ImageComponent src={project.image} handleClick={handleImageClicked} />
     );
 
-  return <>{data}</>;
+  return (
+    <>
+      {/* <button type="button" onClick={() => setIsOpen(true)}>
+        Open Lightbox
+      </button> */}
+      {data}
+    </>
+  );
 }
 
 function SkillsBody({ project }) {
@@ -133,7 +148,17 @@ function Buttons({ project }) {
     </Stack>
   );
 }
-function ModalBody({ open, handleClose, project }) {
+function ModalBody({
+  open,
+  handleClose,
+  project,
+  isLightBoxOpen,
+  setIsLightBoxOpen,
+  lightBoxPhotoIndex,
+  setLightBoxPhotoIndex,
+  images,
+  setImages,
+}) {
   const ProjectDescription = project?.description
     ? `<ul><li style="line-height: 2.2em;">${project?.description?.join(
         "</li><li>"
@@ -168,7 +193,16 @@ function ModalBody({ open, handleClose, project }) {
           ></Typography>
           <SkillsBody project={project} />
           <Buttons project={project} />
-          <CarouselBody project={project} />
+          <CarouselBody
+            project={project}
+            handleModalClose={handleClose}
+            isLightBoxOpen={isLightBoxOpen}
+            setIsLightBoxOpen={setIsLightBoxOpen}
+            lightBoxPhotoIndex={lightBoxPhotoIndex}
+            setLightBoxPhotoIndex={setLightBoxPhotoIndex}
+            images={images}
+            setImages={setImages}
+          />
         </Stack>
       </Box>
     </Modal>
@@ -246,83 +280,6 @@ function ProjectGroup({ handleOpen, projects }) {
   return <div>{projectsView}</div>;
 }
 
-function Portfolio({ data }) {
-  const [open, setOpen] = useState(-1);
-  const handleOpen = (v) => setOpen(v);
-  const handleClose = () => setOpen(-1);
-  const [activeProject, setActiveProject] = useState({});
-
-  const [value, setValue] = useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
-  useEffect(() => {
-    const act = data?.projects?.[value]?.projects[open];
-    if (act) {
-      setActiveProject(act);
-    } else {
-      setActiveProject({});
-    }
-  }, [open, data, value]);
-
-  const projects = data?.projects?.[value]?.projects;
-  const projectsView = (
-    <ProjectGroup handleOpen={handleOpen} projects={projects} />
-  );
-
-  return (
-    <section id="portfolio">
-      <ModalBody
-        open={open !== -1}
-        handleClose={handleClose}
-        project={activeProject}
-      />
-      <div className="row">
-        <div className="twelve columns collapsed">
-          <h1>Check Out Some of My Works.</h1>
-
-          <div
-            id="portfolio-wrapper"
-            className="bgrid-quarters s-bgrid-thirds cf"
-          >
-            <Box>
-              <Box
-                sx={{ borderBottom: 1, borderColor: "divider", m: "10px 40px" }}
-              >
-                <Tabs
-                  value={value}
-                  onChange={handleChange}
-                  aria-label="basic tabs example"
-                >
-                  {data?.projects?.map((projectsGroup, index) => {
-                    return (
-                      <Tab
-                        sx={{ fontSize: 16 }}
-                        label={projectsGroup.title}
-                        {...a11yProps(index)}
-                      />
-                    );
-                  })}
-                </Tabs>
-              </Box>
-
-              {data?.projects?.map((_, index) => {
-                return (
-                  <TabPanel value={value} index={index}>
-                    {projectsView}
-                  </TabPanel>
-                );
-              })}
-            </Box>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function TestPortfolio({ data }) {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
@@ -338,8 +295,12 @@ function TestPortfolio({ data }) {
   const handleOpen = (v) => setOpen(v);
   const handleClose = () => setOpen(-1);
   const [activeProject, setActiveProject] = useState({});
-
   const [value, setValue] = useState(0);
+
+  //  light box states
+  const [isLightBoxOpen, setIsLightBoxOpen] = useState(false);
+  const [lightBoxPhotoIndex, setLightBoxPhotoIndex] = useState(0);
+  const [images, setImages] = useState([]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -365,7 +326,31 @@ function TestPortfolio({ data }) {
         open={open !== -1}
         handleClose={handleClose}
         project={activeProject}
+        isLightBoxOpen={isLightBoxOpen}
+        setIsLightBoxOpen={setIsLightBoxOpen}
+        lightBoxPhotoIndex={lightBoxPhotoIndex}
+        setLightBoxPhotoIndex={setLightBoxPhotoIndex}
+        images={images}
+        setImages={setImages}
       />
+      {isLightBoxOpen && (
+        <Lightbox
+          mainSrc={images[lightBoxPhotoIndex]}
+          nextSrc={images[(lightBoxPhotoIndex + 1) % images.length]}
+          prevSrc={
+            images[(lightBoxPhotoIndex + images.length - 1) % images.length]
+          }
+          onCloseRequest={() => setIsLightBoxOpen(false)}
+          onMovePrevRequest={() =>
+            setLightBoxPhotoIndex(
+              (lightBoxPhotoIndex + images.length - 1) % images.length
+            )
+          }
+          onMoveNextRequest={() =>
+            setLightBoxPhotoIndex((lightBoxPhotoIndex + 1) % images.length)
+          }
+        />
+      )}
       <div className="row">
         <div className="twelve columns">
           <h1>Check Out Some of My Works.</h1>
